@@ -10,11 +10,15 @@ export default defineConfig({
             input: ['resources/js/app.ts'],
             ssr: 'resources/js/ssr.ts',
             refresh: true,
+            // 1. Desactiva la detección de PHP aquí
+            detectPhp: false, 
         }),
         tailwindcss(),
-        wayfinder({
-            formVariants: true,
-        }),
+        // 2. Comenta o elimina Wayfinder temporalmente si sigue dando error, 
+        // ya que suele requerir PHP para generar las rutas.
+        // wayfinder({
+        //    formVariants: true,
+        // }),
         vue({
             template: {
                 transformAssetUrls: {
