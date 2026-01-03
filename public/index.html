@@ -5,15 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Anderson Nolazco</title>
 
-  <!-- CSS compilado por Vite -->
-  <link rel="stylesheet" href="/build/assets/app-DRyuTZKc.css">
-  <link rel="stylesheet" href="/build/assets/Welcome-BmyKqp4H.css">
+  <!-- Vite CSS -->
+  <script type="module">
+    import manifest from './build/manifest.json' assert { type: 'json' };
+    const cssFiles = Object.values(manifest).flatMap(file => file.css || []);
+    cssFiles.forEach(href => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/build/' + href;
+      document.head.appendChild(link);
+    });
+  </script>
 </head>
 <body>
   <div id="app"></div>
 
-  <!-- JS compilado por Vite -->
-  <script type="module" src="/build/assets/app-CeVRd2MQ.js"></script>
-  <script type="module" src="/build/assets/Welcome-tVww9tdz.js"></script>
+  <!-- Vite JS -->
+  <script type="module">
+    import manifest from './build/manifest.json' assert { type: 'json' };
+    Object.values(manifest).forEach(file => {
+      if (file.isEntry) {
+        const script = document.createElement('script');
+        script.type = 'module';
+        script.src = '/build/' + file.file;
+        document.body.appendChild(script);
+      }
+    });
+  </script>
 </body>
 </html>
