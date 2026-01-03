@@ -12,7 +12,7 @@
     cssFiles.forEach(href => {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
-      link.href = '/build/' + href;
+      link.href = 'build/' + href;
       document.head.appendChild(link);
     });
   </script>
@@ -27,7 +27,7 @@
       if (file.isEntry) {
         const script = document.createElement('script');
         script.type = 'module';
-        script.src = '/build/' + file.file;
+        script.src = 'build/' + file.file;
         document.body.appendChild(script);
       }
     });
